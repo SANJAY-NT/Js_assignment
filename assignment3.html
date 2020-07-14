@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Get Day/Month/Year from Date Object in JavaScript</title>
+</head>
+<body>
+    <script>    
+    var d = new Date();
+     
+    var date = d.getDate();
+    var month = d.getMonth() + 1; 
+    var year = d.getFullYear();
+     
+   
+    var datestr = month + "-" + date + "-" + year +" ,";
+    var dateStr = month + "/" + date + "/" + year + " or ";
+    var datestr1 = date + "-" + month + "-" + year + " ," ;
+    var dateStr1 = date + "/" + month + "/" + year ;
+      
+    document.write(datestr);
+    document.write(dateStr);
+    document.write(datestr1);
+    document.write(dateStr1);
+     
+    </script>
+</body>
+</html>  
