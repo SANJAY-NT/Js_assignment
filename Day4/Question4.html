@@ -1,0 +1,35 @@
+  
+<html>
+    <head>
+        <h1> Calculater</h1>
+        <p>(output can be seen in console) </p>
+    </head>
+    <body>
+        <script>
+            var num1 = Number(prompt("enter the number1"))
+            var num2 = Number(prompt("enter the number2"))
+            var choice = prompt("Enter Operation  +,-,*,/,sqrt,%  ???")
+            switch(choice)
+            {
+                case '+':
+                    console.log(`Addition ${num1} ${choice} ${num2} = ${num1+num2}`)
+                    break
+                case '-':
+                    console.log(`Subtraction ${num1} ${choice} ${num2} = ${num1-num2}`)
+                    break
+                case '*':
+                    console.log(`Multiplication ${num1} ${choice} ${num2} = ${num1*num2}`)
+                    break
+                case '/':
+                    console.log(`division ${num1} ${choice} ${num2} = ${num1/num2}`)
+                    break
+                case '%':
+                    console.log(`percentage8 ${num1} ${choice} ${num2} = ${(num1/num2)*100}%`)
+                    break
+                case 'sqrt':
+                    console.log(`square root${choice} ${num1}= ${Math.sqrt(num1)} ; ${choice} ${num2} = ${Math.sqrt(num2)}`)
+                    break
+                }
+        </script>
+    </body>
+</html
