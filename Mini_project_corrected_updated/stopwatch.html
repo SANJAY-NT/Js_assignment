@@ -1,0 +1,138 @@
+<html>
+    <head>
+        <title> Stopwatch LetsUpgrade </title>
+        <h2>JS Mini project (let's Upgrade)</h2>
+        <script>
+            var myStop;
+            var myTimer;
+            function Stopwatch_add()
+            {
+                var a = parseInt(document.getElementById('S_Hour').value);
+                var b = parseInt(document.getElementById('S_Mins').value);
+                var c = parseInt(document.getElementById('S_Secs').value);
+                c = c + 1;
+                if(c==60)
+                {
+                    c = 0;
+                    b = b + 1;
+                    if(b==60)
+                    {
+                        b = 0;
+                        a = a + 1;
+                    }
+                }
+                document.getElementById('S_Secs').value = c;
+                document.getElementById('S_Mins').value = b;
+                document.getElementById('S_Hour').value = a;
+            }
+            function Stopwatch_start()
+            {
+                myStop = setInterval(Stopwatch_add,1000);
+            }
+            function Stopwatch_stop()
+            {
+                clearInterval(myStop);
+            }
+            function Stopwatch_clear()
+            {
+                document.getElementById('S_Hour').value = 0;
+                document.getElementById('S_Mins').value = 0;
+                document.getElementById('S_Secs').value = 0;
+            }
+            function Timer_add()
+            {
+                var x = parseInt(document.getElementById('T_Hour').value);
+                var y = parseInt(document.getElementById('T_Mins').value);
+                var z = parseInt(document.getElementById('T_Secs').value);
+                z = z - 1;
+                if(z==0)
+                {
+                    z = 59;
+                    y = y - 1;
+                    if(y==0)
+                    {
+                        y = 59;
+                        x = x - 1;
+                    }
+                }
+                if(x==0 && y==0 && z==1)
+                {
+                    z = 0;
+                    alert("Time up!!");
+                    Timer_stop();
+                }
+                document.getElementById('T_Secs').value = z;
+                document.getElementById('T_Mins').value = y;
+                document.getElementById('T_Hour').value = x;
+            }
+            function Timer_start()
+            {
+                myTimer = setInterval(Timer_add,1000);
+            }
+            function Timer_stop()
+            {
+                clearInterval(myTimer);
+            }
+            function Timer_clear()
+            {
+                document.getElementById('T_Hour').value = 0;
+                document.getElementById('T_Mins').value = 0;
+                document.getElementById('T_Secs').value = 0;
+            }
+            function Timer_lap()
+            {
+                var m = parseInt(document.getElementById('T_Hour').value);
+                var n = parseInt(document.getElementById('T_Mins').value);
+                var p = parseInt(document.getElementById('T_Secs').value);
+                var Set = m+"H "+n+"M "+p+"S. (By timer)";
+                document.getElementById('DisplayLap').innerHTML = Set;
+            }
+        </script>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body >
+        <table border = "1">
+            <tr align = "center">
+                <td> Stopwatch </td>
+            </tr>
+            <tr>
+                <td colspan = "10">
+                    <input id = "S_Hour" type = "text" readonly size = "15" value = "0"> H </input>
+                    <input id = "S_Mins" type = "text" readonly size = "15" value = "0"> M </input>
+                    <input id = "S_Secs" type = "text" readonly size = "15" value = "0"> S </input>
+                </td>
+            </tr>
+            <tr align = "center">
+                <td colspan = "10">
+                    <button onclick = "Stopwatch_start()"> Start </button>
+                    <button onclick = "Stopwatch_stop()"> Pause </button>
+                    <button onclick = "Stopwatch_clear()"> Reset </button>
+                </td>
+            </tr>
+        </table>
+        <br><br><br>
+        <table border = "1">
+            <tr align = "center">
+                <td> Timer (Please set the time) </td>
+            </tr>
+            <tr>
+                <td colspan = "10">
+                    <input id = "T_Hour" type = "text"  size = "15" value = "0"> H </input>
+                    <input id = "T_Mins" type = "text"  size = "15" value = "0"> M </input>
+                    <input id = "T_Secs" type = "text"  size = "15" value = "0"> S </input>
+                </td>
+            </tr>
+            <tr align = "center ">
+                <td colspan = "10">
+                    <button onclick = "Timer_start()"> Start </button>
+                    <button onclick = "Timer_stop()"> Pause </button>
+                    <button onclick = "Timer_clear()"> Reset </button>
+                    <button onclick = "Timer_lap()"> Lap </button>
+                </td>
+            </tr>
+        </table>
+        <br><br><br>
+        <h3><u> LAP </u></h3>
+        <p id = "DisplayLap"> </p>
+    </body>
+</html>
